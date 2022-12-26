@@ -1,16 +1,17 @@
 /* eslint-disable react/no-unknown-property */
 import React, { useRef } from "react";
 
-function MyModel() {
+function Stickbug() {
   const groupRef = useRef();
+
   return (
     <group ref={groupRef}>
       <mesh>
-        <cylinderGeometry args={[3, 3, 5]} />
-        <meshBasicMaterial color={"black"} wireframe={true} />
+        <capsuleGeometry args={[1, 10]} />
+        <meshBasicMaterial color="red" />
       </mesh>
     </group>
   );
 }
 
-export default MyModel;
+export default Stickbug;

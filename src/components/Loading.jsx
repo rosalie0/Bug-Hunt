@@ -2,7 +2,7 @@ import { Typography } from "@mui/material";
 import React from "react";
 import * as SVGLoaders from "svg-loaders-react";
 
-function Loading(props) {
+function Loading() {
   const loadingCardStyles = {
     display: "flex",
     flexDirection: "column",
