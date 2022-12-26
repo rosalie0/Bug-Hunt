@@ -8,15 +8,16 @@ import Stickbug from "./Stickbug";
 import Loading from "./Loading";
 
 function CanvasContainer() {
+  const bugPosition = [0, 5, 0]; // x, y, z
   return (
     <div className="canvasContainer">
       <Canvas camera={{ position: [10, 5, 10] }}>
         <Suspense fallback={<Loading />}>
           <OrbitControls />
           {/* Models */}
-          <Stickbug />
+          <Stickbug sizeOfBug={10} bugPosition={bugPosition} />
           {/* Helpers */}
-          <gridHelper args={[20, 20, 0xff0000, "teal"]} />
+          <gridHelper args={[40, 40, 0xff0000, "teal"]} />
         </Suspense>
       </Canvas>
     </div>
