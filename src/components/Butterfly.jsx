@@ -9,36 +9,30 @@ import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import { useGLTF, useAnimations } from "@react-three/drei";
 import { MeshBasicMaterial, MeshStandardMaterial } from "three";
-
-const degreesToRadians = (degrees) => {
-  return degrees * (Math.PI / 180);
-};
+import { degreesToRadians } from "../helper";
 
 function Butterfly(props) {
   console.log(props);
-
+  // Get the randomly generated values from props
   const { bodyColor, eyeColor, wingColor } = props;
+  const { position, yRotation, zRotation } = props;
 
   const group = useRef();
   const { nodes, materials, animations } = useGLTF("/butterfly.gltf");
   const { actions, names } = useAnimations(animations, group);
 
   useEffect(() => {
-    console.log(nodes.wing_b001.geometry);
-
     actions[names[0]].reset().fadeIn(0.5).play();
   });
-
-  console.log(nodes.wing_b001.geometry);
 
   return (
     <group
       ref={group}
       {...props}
       dispose={null}
-      rotation={[degreesToRadians(180), 0, 3]}
+      rotation={[degreesToRadians(180), 0, degreesToRadians(180) + zRotation]}
+      position={position}
     >
-      <group name="plane_bas" position={[0, -0.13, 0]} />
       <group name="Armature">
         <primitive object={nodes.base} />
 
@@ -151,5 +145,8 @@ Butterfly.propTypes = {
   bodyColor: PropTypes.string,
   wingColor: PropTypes.string,
   eyeColor: PropTypes.string,
+  position: PropTypes.array,
+  yRotation: PropTypes.number,
+  zRotation: PropTypes.number,
 };
 export default Butterfly;

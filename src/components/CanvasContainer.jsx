@@ -9,6 +9,7 @@ import { OrbitControls } from "@react-three/drei";
 import Loading from "./Loading";
 import Butterfly from "./Butterfly";
 import Skybox from "./Skybox";
+import RandomizedButterfly from "./RandomizedButterfly";
 
 function CanvasContainer({ bodyColor, wingColor, eyeColor }) {
   //const bugPosition = [0, 5, 0]; // x, y, z
@@ -22,17 +23,21 @@ function CanvasContainer({ bodyColor, wingColor, eyeColor }) {
   return (
     <div className="canvasContainer" style={canvasContainerStyles}>
       <Suspense fallback={<Loading />}>
-        <Canvas camera={{ position: [0, 20, 2] }}>
+        <Canvas camera={{ position: [0, 20, 0] }}>
           <Skybox />
           <OrbitControls />
           {/* Models */}
           {/* <Stickbug sizeOfBug={10} bugPosition={bugPosition} /> */}
-          <Butterfly
+          {/* <Butterfly
             scale={10}
             bodyColor={bodyColor}
             eyeColor={eyeColor}
             wingColor={wingColor}
-          />
+          /> */}
+          <RandomizedButterfly />
+          <RandomizedButterfly />
+          <RandomizedButterfly />
+
           {/* Helpers */}
           <gridHelper args={[40, 40, 0xff0000, "teal"]} />
         </Canvas>
