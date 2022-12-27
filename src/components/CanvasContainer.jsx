@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unknown-property */
 import PropTypes from "prop-types";
 import React, { Suspense } from "react";
@@ -12,10 +13,16 @@ import Skybox from "./Skybox";
 function CanvasContainer({ bodyColor, wingColor, eyeColor }) {
   //const bugPosition = [0, 5, 0]; // x, y, z
 
+  const canvasContainerStyles = {
+    border: "2px solid red",
+    height: "70vh",
+    width: "90vw",
+  };
+
   return (
-    <div className="canvasContainer">
+    <div className="canvasContainer" style={canvasContainerStyles}>
       <Suspense fallback={<Loading />}>
-        <Canvas camera={{ position: [10, 5, 10] }}>
+        <Canvas camera={{ position: [0, 20, 2] }}>
           <Skybox />
           <OrbitControls />
           {/* Models */}

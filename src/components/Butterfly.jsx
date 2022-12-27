@@ -10,6 +10,10 @@ import PropTypes from "prop-types";
 import { useGLTF, useAnimations } from "@react-three/drei";
 import { MeshBasicMaterial, MeshStandardMaterial } from "three";
 
+const degreesToRadians = (degrees) => {
+  return degrees * (Math.PI / 180);
+};
+
 function Butterfly(props) {
   console.log(props);
 
@@ -28,7 +32,12 @@ function Butterfly(props) {
   console.log(nodes.wing_b001.geometry);
 
   return (
-    <group ref={group} {...props} dispose={null}>
+    <group
+      ref={group}
+      {...props}
+      dispose={null}
+      rotation={[degreesToRadians(180), 0, 3]}
+    >
       <group name="plane_bas" position={[0, -0.13, 0]} />
       <group name="Armature">
         <primitive object={nodes.base} />
