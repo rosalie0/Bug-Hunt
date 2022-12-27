@@ -1,12 +1,14 @@
+import PropTypes from "prop-types";
 import React from "react";
 import { degreesToRadians, random, randomHsl } from "../helper";
 import Butterfly from "./Butterfly";
 
-function RandomizedButterfly() {
+function RandomizedButterfly({ points, setPoints }) {
   // Generate random values for its x and z coordinates (not y)
   const xPosition = random(-10, 10);
   const zPosition = random(-10, 10);
   const position = [xPosition, 0, zPosition];
+  console.log("position: ", position);
 
   // Generate random value to rotate it by
   const yRotation = degreesToRadians(random(-30, 30));
@@ -17,12 +19,16 @@ function RandomizedButterfly() {
   const eyeColor = randomHsl();
   const wingColor = randomHsl();
 
-  console.log(xPosition, zPosition, yRotation);
+  const clickHandler = () => {
+    console.log("clicked!");
+    setPoints(points + 1); // Update the points by one on click
+  };
 
   return (
     <>
       <Butterfly
-        scale={25}
+        onClick={clickHandler}
+        scale={10}
         bodyColor={bodyColor}
         eyeColor={eyeColor}
         wingColor={wingColor}
@@ -33,5 +39,10 @@ function RandomizedButterfly() {
     </>
   );
 }
+// Prop validations
 
+RandomizedButterfly.propTypes = {
+  points: PropTypes.number,
+  setPoints: PropTypes.func,
+};
 export default RandomizedButterfly;

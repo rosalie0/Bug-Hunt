@@ -7,18 +7,22 @@ import { OrbitControls } from "@react-three/drei";
 
 // import Stickbug from "./Stickbug";
 import Loading from "./Loading";
-import Butterfly from "./Butterfly";
 import Skybox from "./Skybox";
 import RandomizedButterfly from "./RandomizedButterfly";
-import Shoe from "./Shoe";
 
-function CanvasContainer({ bodyColor, wingColor, eyeColor }) {
+function CanvasContainer({
+  bodyColor,
+  wingColor,
+  eyeColor,
+  points,
+  setPoints,
+}) {
   //const bugPosition = [0, 5, 0]; // x, y, z
 
   const canvasContainerStyles = {
     border: "2px solid red",
-    height: "100vh",
-    width: "100vw",
+    height: "80vh",
+    width: "80",
   };
 
   return (
@@ -29,16 +33,11 @@ function CanvasContainer({ bodyColor, wingColor, eyeColor }) {
           <OrbitControls />
           {/* Models */}
           {/* <Stickbug sizeOfBug={10} bugPosition={bugPosition} /> */}
-          <Butterfly
-            scale={10}
-            bodyColor={bodyColor}
-            eyeColor={eyeColor}
-            wingColor={wingColor}
-          />
+          {/* 
+          <BlueButterfly />
+          <BlueButterfly position={[10, 0, -10]} /> */}
 
-          <Shoe position={[10, 0, -10]} />
-          <Shoe />
-
+          <RandomizedButterfly points={points} setPoints={setPoints} />
           {/* Helpers */}
           <gridHelper args={[40, 40, 0xff0000, "teal"]} />
         </Canvas>
@@ -52,5 +51,7 @@ CanvasContainer.propTypes = {
   bodyColor: PropTypes.string,
   wingColor: PropTypes.string,
   eyeColor: PropTypes.string,
+  points: PropTypes.number,
+  setPoints: PropTypes.func,
 };
 export default CanvasContainer;
