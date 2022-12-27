@@ -9,6 +9,8 @@ import { OrbitControls } from "@react-three/drei";
 import Loading from "./Loading";
 import Skybox from "./Skybox";
 import RandomizedButterfly from "./RandomizedButterfly";
+import BlueButterfly from "./BlueButterfly";
+import { Fly } from "./Fly";
 
 function CanvasContainer({
   bodyColor,
@@ -33,9 +35,8 @@ function CanvasContainer({
           <OrbitControls />
           {/* Models */}
           {/* <Stickbug sizeOfBug={10} bugPosition={bugPosition} /> */}
-          {/* 
-          <BlueButterfly />
-          <BlueButterfly position={[10, 0, -10]} /> */}
+
+          <Fly />
 
           <RandomizedButterfly points={points} setPoints={setPoints} />
           {/* Helpers */}
