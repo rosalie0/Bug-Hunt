@@ -30,8 +30,8 @@ export const random = (min, max, float = false) => {
  */
 export const randomHsl = () => {
   const hue = random(0, 360);
-  const saturation = random(0, 100);
-  const lightness = random(0, 100);
+  const saturation = random(25, 90);
+  const lightness = random(25, 90);
   const hslString = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
   return hslString;
 };

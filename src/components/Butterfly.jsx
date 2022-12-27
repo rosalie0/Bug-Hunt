@@ -8,14 +8,13 @@ Command: npx gltfjsx@6.0.9 butterfly.gltf
 import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import { useGLTF, useAnimations } from "@react-three/drei";
-import { MeshBasicMaterial, MeshStandardMaterial } from "three";
 import { degreesToRadians } from "../helper";
 
 function Butterfly(props) {
-  console.log(props);
   // Get the randomly generated values from props
   const { bodyColor, eyeColor, wingColor } = props;
   const { position, yRotation, zRotation } = props;
+  console.log(props);
 
   const group = useRef();
   const { nodes, materials, animations } = useGLTF("/butterfly.gltf");
@@ -139,6 +138,8 @@ function Butterfly(props) {
     </group>
   );
 }
+
+useGLTF.preload("/butterfly.gltf");
 
 // Prop validations
 Butterfly.propTypes = {

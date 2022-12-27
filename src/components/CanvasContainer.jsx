@@ -10,14 +10,15 @@ import Loading from "./Loading";
 import Butterfly from "./Butterfly";
 import Skybox from "./Skybox";
 import RandomizedButterfly from "./RandomizedButterfly";
+import Shoe from "./Shoe";
 
 function CanvasContainer({ bodyColor, wingColor, eyeColor }) {
   //const bugPosition = [0, 5, 0]; // x, y, z
 
   const canvasContainerStyles = {
     border: "2px solid red",
-    height: "70vh",
-    width: "90vw",
+    height: "100vh",
+    width: "100vw",
   };
 
   return (
@@ -28,15 +29,15 @@ function CanvasContainer({ bodyColor, wingColor, eyeColor }) {
           <OrbitControls />
           {/* Models */}
           {/* <Stickbug sizeOfBug={10} bugPosition={bugPosition} /> */}
-          {/* <Butterfly
+          <Butterfly
             scale={10}
             bodyColor={bodyColor}
             eyeColor={eyeColor}
             wingColor={wingColor}
-          /> */}
-          <RandomizedButterfly />
-          <RandomizedButterfly />
-          <RandomizedButterfly />
+          />
+
+          <Shoe position={[10, 0, -10]} />
+          <Shoe />
 
           {/* Helpers */}
           <gridHelper args={[40, 40, 0xff0000, "teal"]} />
