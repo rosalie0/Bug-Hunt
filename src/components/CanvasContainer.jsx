@@ -11,6 +11,7 @@ import Skybox from "./Skybox";
 import RandomizedButterfly from "./RandomizedButterfly";
 import BlueButterfly from "./BlueButterfly";
 import { Fly } from "./Fly";
+import { useSelector } from "react-redux";
 
 function CanvasContainer({
   bodyColor,
@@ -21,6 +22,7 @@ function CanvasContainer({
 }) {
   //const bugPosition = [0, 5, 0]; // x, y, z
 
+  // const {points} = useSelector(state => state.game)
   const canvasContainerStyles = {
     border: "2px solid red",
     height: "80vh",
@@ -31,6 +33,7 @@ function CanvasContainer({
     <div className="canvasContainer" style={canvasContainerStyles}>
       <Suspense fallback={<Loading />}>
         <Canvas camera={{ position: [0, 20, 0] }}>
+          <ambientLight />
           <Skybox />
           <OrbitControls />
           {/* Models */}
