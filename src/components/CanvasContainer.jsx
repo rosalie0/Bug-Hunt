@@ -11,37 +11,43 @@ import Skybox from "./Skybox";
 import RandomizedButterfly from "./RandomizedButterfly";
 import BlueButterfly from "./BlueButterfly";
 import { Fly } from "./Fly";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addPoints } from "../redux/gameSlice";
 
-function CanvasContainer({
-  bodyColor,
-  wingColor,
-  eyeColor,
-  points,
-  setPoints,
-}) {
+function CanvasContainer({ bodyColor, wingColor, eyeColor }) {
   //const bugPosition = [0, 5, 0]; // x, y, z
+  const dispatch = useDispatch();
+  const { points } = useSelector((state) => state.game);
 
-  // const {points} = useSelector(state => state.game)
   const canvasContainerStyles = {
     border: "2px solid red",
     height: "80vh",
     width: "80",
   };
 
+  // Flies are worth 1 point
+  const flyClickHandler = () => {
+    console.log("fly clicked!");
+    dispatch(addPoints(1));
+  };
+
+  // Butterflies are worth 5 points
+  const butterflyClickHandler = () => {
+    console.log("bf click");
+    dispatch(addPoints(5));
+  };
   return (
     <div className="canvasContainer" style={canvasContainerStyles}>
       <Suspense fallback={<Loading />}>
         <Canvas camera={{ position: [0, 20, 0] }}>
           <ambientLight />
           <Skybox />
-          <OrbitControls />
           {/* Models */}
           {/* <Stickbug sizeOfBug={10} bugPosition={bugPosition} /> */}
 
-          <Fly />
+          <Fly onClick={flyClickHandler} />
 
-          <RandomizedButterfly points={points} setPoints={setPoints} />
+          <RandomizedButterfly onClick={butterflyClickHandler} />
           {/* Helpers */}
           <gridHelper args={[40, 40, 0xff0000, "teal"]} />
         </Canvas>
@@ -55,7 +61,7 @@ CanvasContainer.propTypes = {
   bodyColor: PropTypes.string,
   wingColor: PropTypes.string,
   eyeColor: PropTypes.string,
-  points: PropTypes.number,
-  setPoints: PropTypes.func,
+  // points: PropTypes.number,
+  // setPoints: PropTypes.func,
 };
 export default CanvasContainer;

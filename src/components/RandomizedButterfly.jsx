@@ -1,9 +1,12 @@
-import PropTypes from "prop-types";
 import React from "react";
 import { degreesToRadians, random, randomHsl } from "../helper";
+import { useDispatch } from "react-redux";
+import { addPoints } from "../redux/gameSlice";
 import Butterfly from "./Butterfly";
 
-function RandomizedButterfly({ points, setPoints }) {
+function RandomizedButterfly() {
+  const dispatch = useDispatch();
+
   // Generate random values for its x and z coordinates (not y)
   const xPosition = random(-10, 10);
   const zPosition = random(-10, 10);
@@ -19,15 +22,15 @@ function RandomizedButterfly({ points, setPoints }) {
   const eyeColor = randomHsl();
   const wingColor = randomHsl();
 
-  const clickHandler = () => {
-    console.log("clicked!");
-    setPoints(points + 1); // Update the points by one on click
+  // Butterflies are worth 5 points
+  const butterflyClickHandler = () => {
+    console.log("bf click");
+    dispatch(addPoints(5));
   };
-
   return (
     <>
       <Butterfly
-        onClick={clickHandler}
+        onClick={butterflyClickHandler}
         scale={10}
         bodyColor={bodyColor}
         eyeColor={eyeColor}
@@ -39,10 +42,11 @@ function RandomizedButterfly({ points, setPoints }) {
     </>
   );
 }
-// Prop validations
 
-RandomizedButterfly.propTypes = {
-  points: PropTypes.number,
-  setPoints: PropTypes.func,
-};
+// Prop validations
+// RandomizedButterfly.propTypes = {
+//   points: PropTypes.number,
+//   setPoints: PropTypes.func,
+// };
+
 export default RandomizedButterfly;

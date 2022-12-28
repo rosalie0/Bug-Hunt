@@ -10,10 +10,11 @@ export const gameSlice = createSlice({
   initialState,
   reducers: {
     // Actions to affect our inital state pieces go here
-    addPoints: (state) => {
-      state.points++;
+    addPoints: (state, action) => {
+      const pointsToAdd = action.payload;
+      state.points += pointsToAdd;
     },
-    subtractPoint: (state) => {
+    subtractPoints: (state) => {
       state.points--;
     },
     resetPoints: (state) => {
@@ -23,7 +24,7 @@ export const gameSlice = createSlice({
 });
 
 // export each action
-export const { addPoint, subtractPoint, resetPoints } = gameSlice.actions;
+export const { addPoints, subtractPoints, resetPoints } = gameSlice.actions;
 
 // export the reducer for the store to import
 export default gameSlice.reducer;

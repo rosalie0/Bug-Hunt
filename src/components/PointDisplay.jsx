@@ -1,17 +1,13 @@
-import PropTypes from "prop-types";
 import React from "react";
+import { useSelector } from "react-redux";
 
-function PointDisplay({ points }) {
+function PointDisplay() {
+  const { points } = useSelector((state) => state.game);
   return (
     <div>
       <h2>Points: {points}</h2>
     </div>
   );
 }
-
-// Prop validations
-PointDisplay.propTypes = {
-  points: PropTypes.number,
-};
 
 export default PointDisplay;
