@@ -1,13 +1,13 @@
 import React from "react";
 import "./App.css";
 import CanvasContainer from "./components/CanvasContainer";
-import PointDisplay from "./components/PointDisplay";
+import GameInfoDisplay from "./components/GameInfoDisplay";
 
 function App() {
   return (
     <div className="App">
       <CanvasContainer />
-      <PointDisplay />
+      <GameInfoDisplay />
     </div>
   );
 }

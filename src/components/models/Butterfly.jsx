@@ -8,7 +8,7 @@ Command: npx gltfjsx@6.0.9 butterfly.gltf
 import React, { useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 import { useGLTF, useAnimations } from "@react-three/drei";
-import { degreesToRadians } from "../helper";
+import { degreesToRadians } from "../../helper";
 
 export function Butterfly(props) {
   // Get the randomly generated values from props

@@ -6,9 +6,9 @@ Command: npx gltfjsx@6.0.9 fly.gltf --transform
 
 import React from "react";
 import { useGLTF } from "@react-three/drei";
-import { degreesToRadians, random, randomHsl } from "../helper";
+import { degreesToRadians, random, randomHsl } from "../../helper";
 
-export function Fly(props) {
+export default function Fly(props) {
   const { nodes } = useGLTF("/models/fly-transformed.glb");
 
   // ************* RANDOMIZATION ************* //

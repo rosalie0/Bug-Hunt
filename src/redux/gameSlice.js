@@ -6,6 +6,7 @@ const initialState = {
   flyCounter: 0,
   butterflyCounter: 0,
   selectedLocation: "",
+  level: 1,
 };
 
 export const gameSlice = createSlice({

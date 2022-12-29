@@ -13,9 +13,9 @@ import {
   Mesh,
 } from "three";
 
-function BackgroundGrass() {
+function Europe() {
   const { scene } = useThree();
-  const texture = useLoader(TextureLoader, "/sunflowers_2k.png");
+  const texture = useLoader(TextureLoader, "/backgrounds/europe-bg.jpg");
 
   texture.magFilter = LinearFilter;
   texture.minFilter = LinearFilter;
@@ -34,4 +34,4 @@ function BackgroundGrass() {
   scene.add(bgMesh);
 }
 
-export default BackgroundGrass;
+export default Europe;
