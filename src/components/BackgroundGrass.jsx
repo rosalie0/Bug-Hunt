@@ -15,8 +15,7 @@ import {
 
 function BackgroundGrass() {
   const { scene } = useThree();
-  const texture = useLoader(TextureLoader, "/tears_of_steel_bridge_2k.jpg");
-  texture.encoding = sRGBEncoding; // optional / changes the hues of how pic looks
+  const texture = useLoader(TextureLoader, "/sunflowers_2k.png");
 
   texture.magFilter = LinearFilter;
   texture.minFilter = LinearFilter;

@@ -5,6 +5,7 @@ const initialState = {
   points: 0,
   flyCounter: 0,
   butterflyCounter: 0,
+  selectedLocation: "",
 };
 
 export const gameSlice = createSlice({
@@ -23,10 +24,12 @@ export const gameSlice = createSlice({
       state.points = 0;
     },
 
-    // Incr
+    // Increment the counter keeping track of this model's clicks
     addFlyCounter: (state) => {
       state.flyCounter++;
     },
+
+    // Increment the counter keeping track of this model's clicks
     addButterflyCounter: (state) => {
       state.butterflyCounter++;
     },
