@@ -4,7 +4,7 @@ import { sRGBEncoding, TextureLoader } from "three";
 function Skybox() {
   const { scene } = useThree();
   const texture = useLoader(TextureLoader, "/berry-bg.jpg");
-  texture.encoding = sRGBEncoding;
+  texture.encoding = sRGBEncoding; // optional / changes the hues of how pic looks
   scene.background = texture;
   return null;
 }

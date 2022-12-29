@@ -6,16 +6,31 @@ Command: npx gltfjsx@6.0.9 fly.gltf --transform
 
 import React from "react";
 import { useGLTF } from "@react-three/drei";
-import { randomHsl } from "../helper";
+import { degreesToRadians, random, randomHsl } from "../helper";
 
 export function Fly(props) {
   const { nodes } = useGLTF("/models/fly-transformed.glb");
-  console.log(nodes);
 
+  // ************* RANDOMIZATION ************* //
+  // Generate random values for its x and z coordinates (not y)
+  const xPosition = random(-10, 10);
+  const zPosition = random(-10, 10);
+  const position = [xPosition, 0, zPosition];
+  // Generate random value to rotate it by
+  const yRotation = degreesToRadians(random(-30, 30));
+  const zRotation = degreesToRadians(random(-30, 30));
+  // Make a random hsl value for the body and wing color
   const mainColor = randomHsl();
   const wingColor = randomHsl();
+
   return (
-    <group {...props} scale={0.15} dispose={null}>
+    <group
+      {...props}
+      scale={0.15}
+      dispose={null}
+      position={position}
+      rotation={[0, yRotation, zRotation]}
+    >
       <mesh
         geometry={nodes["body-and-eye"].geometry}
         material-color={mainColor}
@@ -52,5 +67,3 @@ export function Fly(props) {
     </group>
   );
 }
-
-useGLTF.preload("/models/fly-transformed.glb");

@@ -11,13 +11,13 @@ import Skybox from "./Skybox";
 import RandomizedButterfly from "./RandomizedButterfly";
 import BlueButterfly from "./BlueButterfly";
 import { Fly } from "./Fly";
-import { useDispatch, useSelector } from "react-redux";
-import { addPoints } from "../redux/gameSlice";
+import { useDispatch } from "react-redux";
+import { addFlyCounter, addPoints } from "../redux/gameSlice";
+import Butterfly from "./Butterfly";
 
-function CanvasContainer({ bodyColor, wingColor, eyeColor }) {
+function CanvasContainer({ bodyColor, eyeColor }) {
   //const bugPosition = [0, 5, 0]; // x, y, z
   const dispatch = useDispatch();
-  const { points } = useSelector((state) => state.game);
 
   const canvasContainerStyles = {
     border: "2px solid red",
@@ -26,30 +26,32 @@ function CanvasContainer({ bodyColor, wingColor, eyeColor }) {
   };
 
   // Flies are worth 1 point
-  const flyClickHandler = () => {
+  const flyClickHandler = (event) => {
+    event.stopPropagation(); // don't allow a 'click through' to get double points if models happen to be stacked
     console.log("fly clicked!");
-    dispatch(addPoints(1));
+    dispatch(addPoints(1)); // update total points - flies are worth 1 point
+    dispatch(addFlyCounter()); // add 1 to our fly counter
   };
 
-  // Butterflies are worth 5 points
-  const butterflyClickHandler = () => {
-    console.log("bf click");
-    dispatch(addPoints(5));
-  };
   return (
     <div className="canvasContainer" style={canvasContainerStyles}>
       <Suspense fallback={<Loading />}>
         <Canvas camera={{ position: [0, 20, 0] }}>
-          <ambientLight />
-          <Skybox />
+          <OrbitControls />
+          {/* <Skybox /> */}
           {/* Models */}
           {/* <Stickbug sizeOfBug={10} bugPosition={bugPosition} /> */}
 
           <Fly onClick={flyClickHandler} />
+          <Fly onClick={flyClickHandler} />
+          <Fly onClick={flyClickHandler} />
 
-          <RandomizedButterfly onClick={butterflyClickHandler} />
+          <RandomizedButterfly />
+          <RandomizedButterfly />
+          <RandomizedButterfly />
+
           {/* Helpers */}
-          <gridHelper args={[40, 40, 0xff0000, "teal"]} />
+          {/* <gridHelper args={[40, 40, 0xff0000, "teal"]} /> */}
         </Canvas>
       </Suspense>
     </div>
@@ -59,9 +61,6 @@ function CanvasContainer({ bodyColor, wingColor, eyeColor }) {
 // Prop validations
 CanvasContainer.propTypes = {
   bodyColor: PropTypes.string,
-  wingColor: PropTypes.string,
   eyeColor: PropTypes.string,
-  // points: PropTypes.number,
-  // setPoints: PropTypes.func,
 };
 export default CanvasContainer;
