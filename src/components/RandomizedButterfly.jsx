@@ -21,11 +21,12 @@ function RandomizedButterfly() {
   // Butterflies are worth 5 points
   const butterflyClickHandler = (event) => {
     event.stopPropagation(); // don't allow a 'click through' to get double points if models happen to be stacked
-
     console.log("01 butterfly click!");
     dispatch(addPoints(5)); //Butterflies are worth 5 points
     dispatch(addButterflyCounter()); // Add 1 to our butterfly counter
   };
+  console.log("inside randomized butterfly, yrotation:", yRotation);
+
   return (
     <>
       <Butterfly
@@ -34,6 +35,15 @@ function RandomizedButterfly() {
         bodyColor={bodyColor}
         eyeColor={eyeColor}
         position={position}
+        yRotation={yRotation}
+        zRotation={zRotation}
+      />
+      <Butterfly
+        onClick={butterflyClickHandler}
+        scale={10}
+        bodyColor={bodyColor}
+        eyeColor={eyeColor}
+        position={[9, 0, 9]}
         yRotation={yRotation}
         zRotation={zRotation}
       />

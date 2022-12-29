@@ -5,13 +5,11 @@ import { useDispatch } from "react-redux";
 import { addFlyCounter, addPoints } from "../redux/gameSlice";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-
-// import Stickbug from "./Stickbug";
 import Loading from "./Loading";
-import Skybox from "./Skybox";
 import RandomizedButterfly from "./RandomizedButterfly";
 import { Fly } from "./Fly";
-
+import BackgroundBerry from "./BackgroundBerry";
+import BackgroundGrass from "./BackgroundGrass";
 function CanvasContainer() {
   //const bugPosition = [0, 5, 0]; // x, y, z
   const dispatch = useDispatch();
@@ -33,9 +31,9 @@ function CanvasContainer() {
   return (
     <div className="canvasContainer" style={canvasContainerStyles}>
       <Suspense fallback={<Loading />}>
-        <Canvas camera={{ position: [0, 20, 0] }}>
-          <OrbitControls />
-          {/* <Skybox /> */}
+        <Canvas>
+          <BackgroundGrass />
+          <OrbitControls enableZoom={false} />
 
           {/* <Stickbug sizeOfBug={10} bugPosition={bugPosition} /> */}
           <Fly onClick={flyClickHandler} />

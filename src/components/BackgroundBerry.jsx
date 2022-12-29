@@ -1,7 +1,7 @@
 import { useLoader, useThree } from "@react-three/fiber";
 import { sRGBEncoding, TextureLoader } from "three";
 
-function Skybox() {
+function BackgroundBerry() {
   const { scene } = useThree();
   const texture = useLoader(TextureLoader, "/berry-bg.jpg");
   texture.encoding = sRGBEncoding; // optional / changes the hues of how pic looks
@@ -9,4 +9,4 @@ function Skybox() {
   return null;
 }
 
-export default Skybox;
+export default BackgroundBerry;
