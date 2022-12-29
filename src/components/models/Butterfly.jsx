@@ -5,17 +5,17 @@ import { degreesToRadians, random, randomHsl } from "../../helper";
 
 function Butterfly(props) {
   // ************* RANDOMIZATION ************* //
-  // Generate random values for its x and z coordinates (not y)
-  const xPosition = random(-10, 10);
-  const zPosition = random(-10, 10);
-  const position = [xPosition, 0, zPosition];
-  // Generate random value to rotate it by
-  const yRotation = degreesToRadians(random(-30, 30));
-  const zRotation = degreesToRadians(random(-30, 30));
+  const randomPosition = [random(-15, 15), random(-15, 15), random(-15, 15)];
+  const randomRotation = [
+    degreesToRadians(random(-45, 45)),
+    degreesToRadians(random(-45, 45)),
+    degreesToRadians(random(-45, 45)),
+  ];
   // Make a random hsl value for the body and  eye color
   const bodyColor = randomHsl();
   const eyeColor = randomHsl();
 
+  // ************* ANIMATION AND SKELETON/BONE LOADING ************* //
   const group = useRef();
   const { nodes, materials, animations } = useGLTF("/models/butterfly.gltf");
   const { actions, names } = useAnimations(animations, group);
@@ -26,14 +26,12 @@ function Butterfly(props) {
 
   return (
     <group
-      ref={group}
       {...props}
-      position={position}
-      rotation={[
-        degreesToRadians(180),
-        yRotation,
-        degreesToRadians(180) + zRotation,
-      ]}
+      scale={3}
+      ref={group}
+      dispose={null}
+      position={randomPosition}
+      rotation={randomRotation}
     >
       <primitive object={nodes.base} />
 

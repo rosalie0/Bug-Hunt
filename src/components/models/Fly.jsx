@@ -12,15 +12,12 @@ export default function Fly(props) {
   const { nodes } = useGLTF("/models/fly-transformed.glb");
 
   // ************* RANDOMIZATION ************* //
-  // Generate random values for its x and z coordinates (not y)
-
   const randomPosition = [random(-15, 15), random(-15, 15), random(-15, 15)];
   const randomRotation = [
     degreesToRadians(random(-45, 45)),
     degreesToRadians(random(-45, 45)),
     degreesToRadians(random(-45, 45)),
   ];
-
   // Make a random hsl value for the body and wing color
   const mainColor = randomHsl();
   const wingColor = randomHsl();
@@ -28,7 +25,7 @@ export default function Fly(props) {
   return (
     <group
       {...props}
-      scale={0.05}
+      scale={0.1}
       dispose={null}
       position={randomPosition}
       rotation={randomRotation}

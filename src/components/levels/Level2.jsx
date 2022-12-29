@@ -1,7 +1,14 @@
 import React from "react";
+import Fly from "../models/Fly";
 
 function Level2() {
-  return <div>level 2!</div>;
+  return (
+    <>
+      <Fly />
+      <Fly />
+      <Fly />
+    </>
+  );
 }
 
 export default Level2;

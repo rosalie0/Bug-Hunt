@@ -9,7 +9,7 @@ import {
   ShaderMaterial,
   sRGBEncoding,
   TextureLoader,
-  BoxBufferGeometry,
+  BoxGeometry,
   Mesh,
 } from "three";
 
@@ -29,7 +29,7 @@ function Europe() {
     side: BackSide,
   });
   material.uniforms.tEquirect.value = texture;
-  const plane = new BoxBufferGeometry(100, 100, 100);
+  const plane = new BoxGeometry(100, 100, 100);
   const bgMesh = new Mesh(plane, material);
   scene.add(bgMesh);
 }

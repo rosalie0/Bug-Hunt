@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import { useDispatch } from "react-redux";
 import {
@@ -22,7 +23,7 @@ function Level1() {
     dispatch(addFlyCounter()); // add 1 to our fly counter
   };
 
-  // Butterflies are worth 5 points
+  // // Butterflies are worth 5 points
   const butterflyClickHandler = (event) => {
     event.stopPropagation(); // don't allow a 'click through' to get double points if models happen to be stacked
     console.log("01 butterfly click!");
@@ -37,11 +38,7 @@ function Level1() {
       <Fly onClick={flyClickHandler} />
       <Fly onClick={flyClickHandler} />
       <Fly onClick={flyClickHandler} />
-
       <Butterfly onClick={butterflyClickHandler} />
-
-      {/* Helpers */}
-      {/* <gridHelper args={[40, 40, 0xff0000, "teal"]} /> */}
     </>
   );
 }
