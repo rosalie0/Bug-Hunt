@@ -7,6 +7,7 @@ Command: npx gltfjsx@6.0.9 fly.gltf --transform
 import React from "react";
 import { useGLTF } from "@react-three/drei";
 import { degreesToRadians, random, randomHsl } from "../../helper";
+import { MeshPhongMaterial, MeshStandardMaterial } from "three";
 
 export default function Fly(props) {
   const { nodes } = useGLTF("/models/fly-transformed.glb");
@@ -22,10 +23,13 @@ export default function Fly(props) {
   const mainColor = randomHsl();
   const wingColor = randomHsl();
 
+  // eslint-disable-next-line no-unused-vars
+  const myPhong = new MeshPhongMaterial();
+  const myStandard = new MeshStandardMaterial();
   return (
     <group
       {...props}
-      scale={0.1}
+      scale={0.5}
       dispose={null}
       position={randomPosition}
       rotation={randomRotation}
@@ -36,7 +40,11 @@ export default function Fly(props) {
         position={[2.94, 0.05, 0.27]}
         rotation={[-0.37, -0.43, -0.75]}
         scale={0.28}
-      />
+        material={myStandard}
+      >
+        {/* <meshPhongMaterial /> */}
+      </mesh>
+
       <mesh
         geometry={nodes.eye.geometry}
         material-color={mainColor}

@@ -40,7 +40,15 @@ function CanvasContainer() {
     <div className="canvasContainer" style={canvasContainerStyles}>
       <Suspense fallback={<Loading />}>
         <Canvas>
-          <OrbitControls enableZoom={false} />
+          <ambientLight intensity={0.1} />
+          <directionalLight color="red" position={[0, 0, 5]} />
+
+          <mesh>
+            <sphereGeometry />
+            <meshPhongMaterial />
+          </mesh>
+
+          <OrbitControls />
           {level === 1 && <Level1 />}
           {level === 2 && <Level2 />}
           {playerWon && <Endscreen />}
