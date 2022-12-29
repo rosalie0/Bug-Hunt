@@ -1,11 +1,15 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { addFlyCounter, addPoints } from "../../redux/gameSlice";
+import {
+  addFlyCounter,
+  addPoints,
+  addButterflyCounter,
+} from "../../redux/gameSlice";
 import SunflowerField from "../backgrounds/SunflowerField";
 
 // 3-D Model Imports
 import Fly from "../models/Fly";
-import RandomizedButterfly from "../models/RandomizedButterfly";
+import Butterfly from "../models/Butterfly";
 
 function Level1() {
   const dispatch = useDispatch();
@@ -18,14 +22,23 @@ function Level1() {
     dispatch(addFlyCounter()); // add 1 to our fly counter
   };
 
+  // Butterflies are worth 5 points
+  const butterflyClickHandler = (event) => {
+    event.stopPropagation(); // don't allow a 'click through' to get double points if models happen to be stacked
+    console.log("01 butterfly click!");
+    dispatch(addPoints(5)); //Butterflies are worth 5 points
+    dispatch(addButterflyCounter()); // Add 1 to our butterfly counter
+  };
+
   return (
     <>
       <SunflowerField />
+
       <Fly onClick={flyClickHandler} />
       <Fly onClick={flyClickHandler} />
       <Fly onClick={flyClickHandler} />
 
-      <RandomizedButterfly />
+      <Butterfly onClick={butterflyClickHandler} />
 
       {/* Helpers */}
       {/* <gridHelper args={[40, 40, 0xff0000, "teal"]} /> */}

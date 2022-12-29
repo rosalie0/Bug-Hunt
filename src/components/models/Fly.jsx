@@ -13,12 +13,14 @@ export default function Fly(props) {
 
   // ************* RANDOMIZATION ************* //
   // Generate random values for its x and z coordinates (not y)
-  const xPosition = random(-10, 10);
-  const zPosition = random(-10, 10);
-  const position = [xPosition, 0, zPosition];
-  // Generate random value to rotate it by
-  const yRotation = degreesToRadians(random(-30, 30));
-  const zRotation = degreesToRadians(random(-30, 30));
+
+  const randomPosition = [random(-15, 15), random(-15, 15), random(-15, 15)];
+  const randomRotation = [
+    degreesToRadians(random(-45, 45)),
+    degreesToRadians(random(-45, 45)),
+    degreesToRadians(random(-45, 45)),
+  ];
+
   // Make a random hsl value for the body and wing color
   const mainColor = randomHsl();
   const wingColor = randomHsl();
@@ -26,10 +28,10 @@ export default function Fly(props) {
   return (
     <group
       {...props}
-      scale={0.15}
+      scale={0.05}
       dispose={null}
-      position={position}
-      rotation={[0, yRotation, zRotation]}
+      position={randomPosition}
+      rotation={randomRotation}
     >
       <mesh
         geometry={nodes["body-and-eye"].geometry}

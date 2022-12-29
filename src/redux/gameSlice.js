@@ -25,14 +25,23 @@ export const gameSlice = createSlice({
       state.points = 0;
     },
 
+    // FLY COUNTER REDUCERS:
     // Increment the counter keeping track of this model's clicks
     addFlyCounter: (state) => {
       state.flyCounter++;
     },
+    resetFlyCounter: (state) => {
+      state.flyCounter = 0;
+    },
+
+    // BUTTERFLY COUNTER REDUCERS:
 
     // Increment the counter keeping track of this model's clicks
     addButterflyCounter: (state) => {
       state.butterflyCounter++;
+    },
+    resetButterflyCounter: (state) => {
+      state.butterflyCounter = 0;
     },
   },
 });
