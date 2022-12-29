@@ -2,7 +2,7 @@ import React from "react";
 import { degreesToRadians, random, randomHsl } from "../helper";
 import { useDispatch } from "react-redux";
 import { addButterflyCounter, addPoints } from "../redux/gameSlice";
-import Butterfly from "./Butterfly";
+import { Butterfly } from "./Butterfly";
 
 function RandomizedButterfly() {
   const dispatch = useDispatch();

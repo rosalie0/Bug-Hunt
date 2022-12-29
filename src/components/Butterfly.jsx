@@ -10,7 +10,7 @@ import PropTypes from "prop-types";
 import { useGLTF, useAnimations } from "@react-three/drei";
 import { degreesToRadians } from "../helper";
 
-function Butterfly(props) {
+export function Butterfly(props) {
   // Get the randomly generated values from props
   const { bodyColor, eyeColor } = props;
   const { yRotation, zRotation } = props;
@@ -146,4 +146,5 @@ Butterfly.propTypes = {
   yRotation: PropTypes.number,
   zRotation: PropTypes.number,
 };
-export default Butterfly;
+
+// export default Butterfly;
