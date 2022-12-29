@@ -46,6 +46,7 @@ function CanvasContainer({ bodyColor, eyeColor }) {
           <Fly onClick={flyClickHandler} />
           <Fly onClick={flyClickHandler} />
 
+          {/* The butterflies cannot be rendered more than once */}
           <RandomizedButterfly />
           <RandomizedButterfly />
           <RandomizedButterfly />
