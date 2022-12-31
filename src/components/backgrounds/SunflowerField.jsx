@@ -7,7 +7,6 @@ import {
   LinearFilter,
   ShaderLib,
   ShaderMaterial,
-  sRGBEncoding,
   TextureLoader,
   Mesh,
   BoxGeometry,

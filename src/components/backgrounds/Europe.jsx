@@ -16,6 +16,8 @@ import {
 function Europe() {
   const { scene } = useThree();
   const texture = useLoader(TextureLoader, "/backgrounds/europe-bg.jpg");
+  texture.encoding = sRGBEncoding; // optional / changes the hues of how pic looks
+  // in this case, it keeps the image from looking 'blown out' with brightness
 
   texture.magFilter = LinearFilter;
   texture.minFilter = LinearFilter;

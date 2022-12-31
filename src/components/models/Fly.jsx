@@ -7,7 +7,7 @@ Command: npx gltfjsx@6.0.9 fly.gltf --transform
 import React from "react";
 import { useGLTF, useTexture } from "@react-three/drei";
 import { degreesToRadians, random, randomHsl } from "../../helper";
-import { MeshMatcapMaterial } from "three";
+import { MeshLambertMaterial, MeshMatcapMaterial } from "three";
 
 export default function Fly(props) {
   const { nodes } = useGLTF("/models/fly-transformed.glb");
@@ -23,16 +23,17 @@ export default function Fly(props) {
   const mainColor = randomHsl();
   const wingColor = randomHsl();
 
-  // MATERIALS FOR TESTING:
-
-  // const myPhong = new MeshPhongMaterial();
-  // const myStandard = new MeshStandardMaterial();
+  // Using a 'matcap' for material - has lighting and shadows already 'baked' in
   const matcapURL = useTexture(`/models/matcap-shiny-black.png`);
   const bodyMaterial = new MeshMatcapMaterial({ matcap: matcapURL });
+  const wingMaterial = new MeshLambertMaterial({
+    opacity: 0.75,
+    transparent: true,
+  });
   return (
     <group
       {...props}
-      scale={0.5}
+      scale={0.25}
       dispose={null}
       position={randomPosition}
       rotation={randomRotation}
@@ -44,10 +45,7 @@ export default function Fly(props) {
         position={[2.94, 0.05, 0.27]}
         rotation={[-0.37, -0.43, -0.75]}
         scale={0.28}
-      >
-        {/* <meshPhongMaterial /> */}
-      </mesh>
-
+      />
       <mesh
         geometry={nodes.eye.geometry}
         material={bodyMaterial}
@@ -57,19 +55,23 @@ export default function Fly(props) {
       />
       <mesh
         geometry={nodes.legs.geometry}
+        material={bodyMaterial}
         material-color={mainColor}
         position={[1.03, 0.01, 1.2]}
         rotation={[0, 0.72, 0]}
         scale={0.19}
       />
+
       <mesh
         geometry={nodes.Plane.geometry}
+        material={wingMaterial}
         material-color={wingColor}
         position={[-1.79, 1.31, -1.09]}
         rotation={[-0.18, 0.11, -0.05]}
       />
       <mesh
         geometry={nodes.Plane001.geometry}
+        material={wingMaterial}
         material-color={wingColor}
         position={[-1.7, 1.27, 1.21]}
         rotation={[0.25, -0.1, 3.05]}

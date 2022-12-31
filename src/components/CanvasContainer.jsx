@@ -17,8 +17,8 @@ function CanvasContainer() {
   );
   const canvasContainerStyles = {
     border: "2px solid red",
-    height: "80vh",
-    width: "80",
+    height: "75vh",
+    width: "100vw",
   };
 
   // ***** Watch points to see if we should advance to next level ****** //
@@ -40,13 +40,7 @@ function CanvasContainer() {
     <div className="canvasContainer" style={canvasContainerStyles}>
       <Suspense fallback={<Loading />}>
         <Canvas>
-          <ambientLight intensity={0.1} />
-          <directionalLight color="red" position={[0, 0, 5]} />
-
-          <mesh>
-            <sphereGeometry />
-            <meshPhongMaterial />
-          </mesh>
+          <ambientLight intensity={1} />
 
           <OrbitControls />
           {level === 1 && <Level1 />}
