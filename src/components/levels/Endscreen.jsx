@@ -10,10 +10,8 @@ function Endscreen(props) {
   const fontURL =
     "/json-fonts-master/fonts/cyrillic/roboto/Roboto_Regular.json";
 
-  GalaxySkybox();
   return (
     <group {...props} ref={mesh} position={[-1, 0, 0]}>
-      <hemisphereLight />
       <GalaxySkybox />
       <Text3D font={fontURL} position={[0, 1, 0]}>
         Y O U

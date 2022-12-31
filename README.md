@@ -16,6 +16,8 @@ There are currently only two levels, and a 'You Win' screen.
 
 - Raspberry Background Photo - https://www.pexels.com/photo/red-raspberries-975231/
 - European City with Bridge Photo - https://polyhaven.com/a/tears_of_steel_bridge
+- Pink Galaxy - https://www.dreamstime.com/illustration/galaxy-hdri.html
+- Green Galaxy - https://wallpapersden.com/nebula-wallpaper/3840x2160/
 
 #### Models
 
