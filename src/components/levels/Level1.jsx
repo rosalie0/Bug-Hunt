@@ -22,7 +22,7 @@ function Level1() {
   // Level 1 is a sunflower field with three flies to click on.
   return (
     <>
-      {/* <SunflowerField /> */}
+      <SunflowerField />
 
       <Fly onClick={flyClickHandler} />
       <Fly onClick={flyClickHandler} />

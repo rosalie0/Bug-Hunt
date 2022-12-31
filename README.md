@@ -3,6 +3,7 @@
 ### Backgrounds
 
 - Raspberry Background Photo - https://www.pexels.com/photo/red-raspberries-975231/
+- European City with Bridge Photo - https://polyhaven.com/a/tears_of_steel_bridge
 
 ### Models
 
