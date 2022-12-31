@@ -1,13 +1,13 @@
 ## models
 
-[ ] add spider to subtract points
-[ ] add shadows/lighting to models so more realistic
+- [ ] add spider to subtract points
+- [x] add shadows/lighting to models so more realistic
 
 ## ideas for game
 
-- adding a timer to each level / the whole game
+- [ ] adding a timer to each level / the whole game
 
-- set up backend to allow a 'high scores' table, which, once a user completes the game, can ente 3 initials to record their entry in the table.
+- [ ] set up backend to allow a 'high scores' table, which, once a user completes the game, can ente 3 initials to record their entry in the table.
 
   - the model would look like:
     - name: STRING[3]

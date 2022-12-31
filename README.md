@@ -22,6 +22,7 @@ There are currently only two levels, and a 'You Win' screen.
 - Butterfly: https://www.turbosquid.com/3d-models/3d-butterfly-rigged-lowpoly-model-1723155#
 - Fly: https://www.turbosquid.com/3d-models/free-blend-model-fly-likes-eat/594451
   - Matcap for Fly body: https://github.com/nidorx/matcaps
+- JSON Robot Font - https://github.com/7dir/json-fonts
 
 #### Demos and Guides that helped me immensely:
 

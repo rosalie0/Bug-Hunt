@@ -42,10 +42,11 @@ function CanvasContainer() {
         <Canvas>
           <ambientLight intensity={1} />
 
+          <Endscreen />
           <OrbitControls />
-          {level === 1 && <Level1 />}
+          {/* {level === 1 && <Level1 />}
           {level === 2 && <Level2 />}
-          {playerWon && <Endscreen />}
+          {playerWon && <Endscreen />} */}
         </Canvas>
       </Suspense>
     </div>
