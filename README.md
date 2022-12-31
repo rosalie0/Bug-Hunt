@@ -27,3 +27,4 @@ There are currently only two levels, and a 'You Win' screen.
 #### Demos and Guides that helped me immensely:
 
 - Three.js Backgrounds and Skyboxes - https://r105.threejsfundamentals.org/threejs/lessons/threejs-backgrounds.html
+- Convert HDRis to CubeMaps: https://matheowis.github.io/HDRI-to-CubeMap/
