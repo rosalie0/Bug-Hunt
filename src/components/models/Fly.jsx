@@ -13,7 +13,7 @@ export default function Fly(props) {
   const { nodes } = useGLTF("/models/fly-transformed.glb");
 
   // ************* RANDOMIZATION ************* //
-  const randomPosition = [random(-15, 15), random(-15, 15), random(-15, 15)];
+  const randomPosition = [random(-20, 20), random(-15, 15), random(-15, 15)];
   const randomRotation = [
     degreesToRadians(random(-45, 45)),
     degreesToRadians(random(-45, 45)),
@@ -30,11 +30,12 @@ export default function Fly(props) {
     opacity: 0.75,
     transparent: true,
   });
+
   return (
     <group
+      name="fly group"
       {...props}
       scale={0.25}
-      dispose={null}
       position={randomPosition}
       rotation={randomRotation}
     >

@@ -16,13 +16,13 @@ function CanvasContainer() {
     (state) => state.game
   );
   const canvasContainerStyles = {
-    border: "2px solid red",
     height: "75vh",
     width: "100vw",
   };
 
   // ***** Watch points to see if we should advance to next level ****** //
   useEffect(() => {
+    console.log("inside watching level useEffect");
     // If level 1, check level 1 requirements
     if (level === 1 && points >= pointsNeededPerLevel[level]) {
       console.log("finished level 1!");
@@ -40,13 +40,11 @@ function CanvasContainer() {
     <div className="canvasContainer" style={canvasContainerStyles}>
       <Suspense fallback={<Loading />}>
         <Canvas>
-          <ambientLight intensity={1} />
-
-          <Endscreen />
           <OrbitControls />
-          {/* {level === 1 && <Level1 />}
+          <ambientLight intensity={1} />
+          {level === 1 && <Level1 />}
           {level === 2 && <Level2 />}
-          {playerWon && <Endscreen />} */}
+          {playerWon && <Endscreen />}
         </Canvas>
       </Suspense>
     </div>

@@ -9,12 +9,18 @@ function GameInfoDisplay() {
     display: "flex",
     flexDirection: "row",
     flexWrap: "wrap",
-    justifyContent: "center",
+    justifyContent: "spaceAround",
     alignItems: "center",
     margin: 10,
     padding: 5,
+    border: "1px solid #ffcbc2",
+    borderRadius: 6,
+    boxShadow: "rgba(0, 0, 0, 0.1) 1px 2px 4px",
+    backgroundColor: "#ffe5e0",
+    color: "#eb2300",
   };
   const gameInfoDisplayStyles = {
+    width: "45vw",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
@@ -27,23 +33,8 @@ function GameInfoDisplay() {
     margin: 0,
   };
 
-  const levelInfoStyles = {
-    color: "red",
-  };
   return (
     <div style={containerStyles}>
-      <div id="description">
-        {level === 2 && (
-          <p style={levelInfoStyles}>
-            Butterflies are hard to catch! You need to click on their bodies,
-            not wings.
-          </p>
-        )}
-        <p>
-          Click on the bugs to catch them, earn points, and move on to the next
-          level!
-        </p>
-      </div>
       <div id="statistics" style={gameInfoDisplayStyles}>
         <h2 style={noMargins}>Level {level}</h2>
         <h3 style={noMargins}>Points: {points}</h3>
@@ -56,6 +47,23 @@ function GameInfoDisplay() {
         <p style={noMargins}>Number of Flies Caught: {flyCounter}</p>
         <p style={noMargins}>
           Number of Butterflies Caught: {butterflyCounter}
+        </p>
+      </div>
+      <div id="description">
+        <h2>Game Information:</h2>
+        {level === 2 && (
+          <>
+            <b>
+              🦋 Butterflies are worth 5 points - but they are hard to catch! 🦋
+            </b>
+            <p style={noMargins}>
+              You need to click on their bodies, not wings.
+            </p>
+          </>
+        )}
+        <p>
+          Click on the bugs to catch them, earn points, and move on to the next
+          level!
         </p>
       </div>
     </div>

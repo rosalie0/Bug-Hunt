@@ -1,7 +1,6 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unknown-property */
-import React from "react";
 import { useLoader, useThree } from "@react-three/fiber";
+import { useEffect } from "react";
 import {
   BackSide,
   LinearFilter,
@@ -13,24 +12,30 @@ import {
 } from "three";
 
 function SunflowerField() {
+  console.log("inside sunflowerField");
   const { scene } = useThree();
   const texture = useLoader(TextureLoader, "/backgrounds/sunflowers_2k.png");
 
-  texture.magFilter = LinearFilter;
-  texture.minFilter = LinearFilter;
+  // Only add this texture to the scene on first load, otherwise it keeps adding.
+  useEffect(() => {
+    texture.magFilter = LinearFilter;
+    texture.minFilter = LinearFilter;
 
-  const shader = ShaderLib.equirect;
-  const material = new ShaderMaterial({
-    fragmentShader: shader.fragmentShader,
-    vertexShader: shader.vertexShader,
-    uniforms: shader.uniforms,
-    depthWrite: false,
-    side: BackSide,
-  });
-  material.uniforms.tEquirect.value = texture;
-  const plane = new BoxGeometry(100, 100, 100);
-  const bgMesh = new Mesh(plane, material);
-  scene.add(bgMesh);
+    const shader = ShaderLib.equirect;
+    const material = new ShaderMaterial({
+      fragmentShader: shader.fragmentShader,
+      vertexShader: shader.vertexShader,
+      uniforms: shader.uniforms,
+      depthWrite: false,
+      side: BackSide,
+    });
+
+    material.uniforms.tEquirect.value = texture;
+    const plane = new BoxGeometry(100, 100, 100);
+    const bgMesh = new Mesh(plane, material);
+    bgMesh.name = "sunflower field";
+    scene.add(bgMesh);
+  }, []);
 }
 
 export default SunflowerField;

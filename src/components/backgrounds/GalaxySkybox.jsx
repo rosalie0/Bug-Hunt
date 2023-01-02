@@ -4,6 +4,13 @@ import { sRGBEncoding, CubeTextureLoader } from "three";
 function GalaxySkybox() {
   // grab a scene and make it the scene's bg
   const { scene } = useThree();
+  console.log(scene);
+
+  // Clear our the scene (Remove our giant cubes that were made from the 360 photo cubes)
+  // Clear everything except the latest child - which is the YOU WIN! font
+  while (scene.children.length > 1) {
+    scene.remove(scene.children[0]);
+  }
   // Create a cube texture
   const loader = new CubeTextureLoader();
   loader.setPath("/backgrounds/custom-cubemap/"); // preface all the .load links with this
@@ -23,7 +30,7 @@ function GalaxySkybox() {
   scene.background = texture;
   texture.encoding = sRGBEncoding; // optional / changes the hues of how pic looks
 
-  console.log(scene.background);
+  console.log(scene);
   return null;
 }
 export default GalaxySkybox;

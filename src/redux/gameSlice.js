@@ -28,16 +28,18 @@ export const gameSlice = createSlice({
       state.flyCounter = 0;
       state.butterflyCounter = 0;
     },
+
     // makes the playerWon bool true, sets level to 0 (so level1 doesn't render)
     winGame: (state) => {
       state.playerWon = true;
       state.level = 0;
     },
+
     // Used for when a player wants to 'play again' after winning
     // Basically, reset everything to initialState's values.
     resetGame: (state) => {
-      state.playerWon = false;
-      state.level = 1;
+      state.playerWon = false; // no longer 'won'
+      state.level = 1; // Start back at level 1
       state.points = 0;
       state.flyCounter = 0;
       state.butterflyCounter = 0;

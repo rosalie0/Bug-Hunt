@@ -26,8 +26,9 @@ function Butterfly(props) {
 
   return (
     <group
+      name="butterfly group"
       {...props}
-      scale={3}
+      scale={5}
       ref={group}
       dispose={null}
       position={randomPosition}

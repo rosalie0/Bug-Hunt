@@ -33,6 +33,8 @@ function Europe() {
   material.uniforms.tEquirect.value = texture;
   const plane = new BoxGeometry(100, 100, 100);
   const bgMesh = new Mesh(plane, material);
+  bgMesh.name = "sunflower field";
+
   scene.add(bgMesh);
 }
 
