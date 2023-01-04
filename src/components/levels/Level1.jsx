@@ -3,7 +3,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { addFlyCounter, addPoints } from "../../redux/gameSlice";
-
 // 3-D Model Imports
 import SunflowerField from "../backgrounds/SunflowerField";
 import Fly from "../models/Fly";

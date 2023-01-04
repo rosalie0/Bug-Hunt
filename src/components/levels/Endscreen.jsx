@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unknown-property */
 import { Text3D } from "@react-three/drei";
-import { useFrame } from "@react-three/fiber";
-import React, { useRef } from "react";
+import { useFrame, useThree } from "@react-three/fiber";
+import React, { useEffect, useRef } from "react";
 import GalaxySkybox from "../backgrounds/GalaxySkybox";
 
 // Renders a 'you win!' in 3d letters
@@ -18,6 +18,13 @@ function Endscreen(props) {
     if (!groupRef.current) return;
     groupRef.current.rotation.x += 0.02;
   });
+
+  const { camera } = useThree();
+  useEffect(() => {
+    console.log(camera);
+    console.log(camera);
+    camera.reset();
+  }, []);
 
   return (
     <group {...props} ref={groupRef} position={[-1, 0, 0]}>

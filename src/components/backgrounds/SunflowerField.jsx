@@ -12,7 +12,6 @@ import {
 } from "three";
 
 function SunflowerField() {
-  console.log("inside sunflowerField");
   const { scene } = useThree();
   const texture = useLoader(TextureLoader, "/backgrounds/sunflowers_2k.png");
 

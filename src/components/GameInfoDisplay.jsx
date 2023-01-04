@@ -33,6 +33,7 @@ function GameInfoDisplay() {
     margin: 0,
   };
 
+  const howManyMorePointsNeeded = pointsNeededPerLevel[level] - points;
   return (
     <div style={containerStyles}>
       <div id="statistics" style={gameInfoDisplayStyles}>
@@ -40,14 +41,16 @@ function GameInfoDisplay() {
         <h3 style={noMargins}>Points: {points}</h3>
         <h4 style={noMargins}>
           <i>
-            Reach {pointsNeededPerLevel[level]} points to advance to the next
+            Get {howManyMorePointsNeeded} more points to advance to the next
             level!
           </i>
         </h4>
         <p style={noMargins}>Number of Flies Caught: {flyCounter}</p>
-        <p style={noMargins}>
-          Number of Butterflies Caught: {butterflyCounter}
-        </p>
+        {level === 2 && (
+          <p style={noMargins}>
+            Number of Butterflies Caught: {butterflyCounter}
+          </p>
+        )}
       </div>
       <div id="description">
         <h2>Game Information:</h2>

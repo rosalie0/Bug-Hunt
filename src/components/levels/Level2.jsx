@@ -15,7 +15,6 @@ function Level2() {
 
   // Flies are worth 1 point
   const flyClickHandler = (event) => {
-    console.log("fly clicked!");
     event.stopPropagation(); // don't allow a 'click through' to get double points if models happen to be stacked
     dispatch(addPoints(1)); // update total points - flies are worth 1 point
     dispatch(addFlyCounter()); // add 1 to our fly counter
@@ -23,7 +22,6 @@ function Level2() {
 
   // Butterflies are worth 5 points
   const butterflyClickHandler = (event) => {
-    console.log("01 butterfly click!");
     event.stopPropagation(); // don't allow a 'click through' to get double points if models happen to be stacked
     dispatch(addPoints(5)); //Butterflies are worth 5 points
     dispatch(addButterflyCounter()); // Add 1 to our butterfly counter
@@ -31,7 +29,7 @@ function Level2() {
 
   // Level 2 is a european city with 3 flies and 1 butterfly to click on
   return (
-    <>
+    <group name="level 2">
       <Europe />
 
       <Fly onClick={flyClickHandler} />
@@ -39,7 +37,7 @@ function Level2() {
       <Fly onClick={flyClickHandler} />
 
       <Butterfly onClick={butterflyClickHandler} />
-    </>
+    </group>
   );
 }
 
