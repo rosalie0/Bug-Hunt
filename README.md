@@ -1,12 +1,19 @@
 ## What is Bug Hunt?
 
-Bug Hunt is a simple 'cookie clicker' that combines rendering 3-D in the browser & game mechanics. Each level has its own background, which is a 360 HDRI photo, where the user can move their view angle via the mouse. They are tasked with earning points by clicking on different bugs that are randomly generated in position, rotation, and color. Upon a click, they rerender to another random spot.
+Bug Hunt is a simple 'cookie clicker' game using React, React Three Fiber for 3-D rendering, Redux for game state, and Firebase to record highscores.
+There are currently only two levels - after completing level 2, a 'You Win' 3-D text is rendered, along with the leaderboard, and an input field to let a user submit their score to the database.
+Each level has its own background, which is a 360 HDRI photo, where the user can move their view angle via the mouse. They are tasked with earning points by clicking on different bugs that are randomly generated in position, rotation, and color. Upon a click, they rerender to another random spot.
 There are currently only two levels, and a 'You Win' screen.
 
 ## How To Play
 
 - clone the repo to your machine
 - via terminal: `npm i && npm run start`
+
+## Known Issues
+
+- Clicking submit for the leaderboard name input does not do anything
+- Play again button does not restart the timer
 
 ### Credits
 
@@ -30,3 +37,4 @@ There are currently only two levels, and a 'You Win' screen.
 
 - Three.js Backgrounds and Skyboxes - https://r105.threejsfundamentals.org/threejs/lessons/threejs-backgrounds.html
 - Convert HDRis to CubeMaps: https://matheowis.github.io/HDRI-to-CubeMap/
+- firebase: https://www.youtube.com/watch?v=jCY6DH8F4oc

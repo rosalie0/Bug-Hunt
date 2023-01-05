@@ -1,13 +1,7 @@
-/* eslint-disable no-unused-vars */
 import React from "react";
-import Highscores from "./Highscores";
-import SignIn from "./SignIn";
-
+import Leaderboard from "./Leaderboard";
 import { initializeApp } from "firebase/app";
-
-import { getFirestore, collection, getDocs } from "firebase/firestore/lite";
-
-import { useAuthState } from "react-firebase-hooks/auth";
+import { getFirestore } from "firebase/firestore/lite";
 
 // Initialize project using json generated from project at firebase.google.com
 // Your web app's Firebase configuration
@@ -24,13 +18,9 @@ const firebaseConfig = {
 const firebaseApp = initializeApp(firebaseConfig);
 const db = getFirestore(firebaseApp);
 
-// get the google account user
-// const [user] = useAuthState(auth);
-
 // Prompt the user to login in with google account
-function FirebaseStuff(props) {
-  return <Highscores db={db} />;
-  //return <div>{user ? <Highscores db={db} /> : <SignIn />}</div>;
+function FirebaseStuff() {
+  return <Leaderboard db={db} />;
 }
 
 export default FirebaseStuff;
