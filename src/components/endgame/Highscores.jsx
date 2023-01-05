@@ -34,15 +34,16 @@ function Highscores({ db }) {
   return (
     <div>
       <h4>Highscores:</h4>
+      {/* <table>
+        <th>Player Name</th>
+        <th>Score</th>
+      </table> */}
       <ul>
-        {highscores.map((highscore) => {
-          console.log(highscore);
-          return (
-            <li key={highscore.id}>
-              {highscore.name} scored a total of {highscore.points}
-            </li>
-          );
-        })}
+        {highscores.map((highscore) => (
+          <li key={highscore.id}>
+            {highscore.name} scored a total of {highscore.points}
+          </li>
+        ))}
       </ul>
     </div>
   );

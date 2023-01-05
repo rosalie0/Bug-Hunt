@@ -18,6 +18,7 @@ function CanvasContainer() {
   const canvasContainerStyles = {
     height: "75vh",
     width: "100vw",
+    zIndex: "-1",
   };
 
   // ***** Watch points to see if we should advance to next level ****** //
