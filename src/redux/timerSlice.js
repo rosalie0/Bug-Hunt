@@ -13,7 +13,6 @@ export const timerSlice = createSlice({
       state.timeInSeconds = 0;
     },
     addOneSecond: (state) => {
-      console.log("inside addonesecond");
       state.timeInSeconds += 1;
     },
   },

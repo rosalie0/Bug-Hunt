@@ -1,8 +1,6 @@
-import PropTypes from "prop-types"; // ES6
-
 import React, { useState } from "react";
 
-function StartGame({ startTimer }) {
+function StartGame() {
   // Use state to keep track of whether to hide or show this container
   // Initially, is visible.
   const [visibility, setVisibility] = useState("visible");
@@ -35,10 +33,5 @@ function StartGame({ startTimer }) {
     </div>
   );
 }
-
-// Prop validation
-StartGame.propTypes = {
-  startTimer: PropTypes.func,
-};
 
 export default StartGame;
