@@ -20,7 +20,7 @@ function Level1() {
 
   // const { scene } = useThree();
   // console.log(scene.children);
-
+  console.log("level 1 rerender!");
   return (
     <group name="level 1">
       <SunflowerField />

@@ -1,11 +1,9 @@
-import PropTypes from "prop-types"; // ES6
 import React from "react";
+import { useSelector } from "react-redux";
 
-function TimerDisplay({ timeElapsed }) {
-  return <div>Time Elapsed in Seconds: {timeElapsed}</div>;
+function TimerDisplay() {
+  const { timeInSeconds } = useSelector((state) => state.timer);
+  return <div>Time Elapsed in Seconds: {timeInSeconds}</div>;
 }
-// Prop validation
-TimerDisplay.propTypes = {
-  timeElapsed: PropTypes.number,
-};
+
 export default TimerDisplay;

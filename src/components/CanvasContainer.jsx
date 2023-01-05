@@ -34,6 +34,7 @@ function CanvasContainer() {
     }
   }, [points]);
 
+  console.log("rerender canvasContainer");
   return (
     <div className="canvasContainer" style={canvasContainerStyles}>
       <Suspense fallback={<Loading />}>
