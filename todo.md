@@ -10,21 +10,17 @@
 ### additional fields for the game:
 
 - [ ] adding a timer to each level
-- [ ] add a timer for the whole game
+- [x] add a timer for the whole game
 
-### recording the score:
+### Recording Score
+
+### recording your best score locally
 
 - [ ] have a local storage for 'your personal best'
-- [ ] set up backend to allow a 'high scores' table, which, once a user completes the game, can ente 3 initials to record their entry in the table.
 
-  - the model would look like:
-    - name: STRING[3]
-    - score: INT
-    - time: TIME_IN_MILLISECONDS
+### recording the score using Firebase
 
-#### firebase
-
-- top 10
+- [x] Set up 'backend' to allow a 'leaderboard' collection, with entries having a `name` and `time` field (time they beat the game in)
 
 ## advancing levels
 

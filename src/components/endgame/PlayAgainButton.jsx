@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { resetGame } from "../redux/gameSlice";
+import { resetGame } from "../../redux/gameSlice";
 
 function PlayAgainButton() {
   const dispatch = useDispatch();
