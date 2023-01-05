@@ -30,7 +30,6 @@ function GalaxySkybox() {
   scene.background = texture;
   texture.encoding = sRGBEncoding; // optional / changes the hues of how pic looks
 
-  console.log(scene);
   return null;
 }
 export default GalaxySkybox;

@@ -26,7 +26,6 @@ function PlayAgainButton() {
   };
 
   const clickHandler = () => {
-    console.log("play again clicked");
     dispatch(resetGame());
   };
   return (

@@ -8,8 +8,8 @@ const degreesToRadians = (degrees) => {
 
 function Stickbug({ bugSize = 10, bugPosition = [0, 0, 0] }) {
   const groupRef = useRef();
-  const [bugXPosition, bugYPosition, bugZPosition] = bugPosition;
-  console.log(bugXPosition, bugYPosition, bugZPosition);
+  // const [bugXPosition, bugYPosition, bugZPosition] = bugPosition;
+
   return (
     <group
       name="stickbug"
