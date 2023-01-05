@@ -1,3 +1,8 @@
+## Play Again
+
+- [ ] have it reset the timer
+- [ ] have it bring back up the div that covers the 3d
+
 ## models
 
 - [ ] add spider to subtract points

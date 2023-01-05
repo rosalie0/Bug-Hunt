@@ -5,7 +5,6 @@ const initialState = {
   playerWon: false,
   level: 1,
   points: 0,
-  timeInSeconds: 0,
   flyCounter: 0,
   butterflyCounter: 0,
   // An object where the keys are the level, and the value is how many points are needed to complete that level.
@@ -31,11 +30,9 @@ export const gameSlice = createSlice({
     },
 
     // makes the playerWon bool true, sets level to 0 (so level1 doesn't render)
-    // The time from the timer should be passed in as the action
-    winGame: (state, action) => {
+    winGame: (state) => {
       state.playerWon = true;
       state.level = 0;
-      state.timeInSeconds = action.payload;
     },
 
     // Used for when a player wants to 'play again' after winning
@@ -46,7 +43,6 @@ export const gameSlice = createSlice({
       state.points = 0;
       state.flyCounter = 0;
       state.butterflyCounter = 0;
-      state.timeInSeconds = 0;
     },
 
     // POINT REDUCERS:
