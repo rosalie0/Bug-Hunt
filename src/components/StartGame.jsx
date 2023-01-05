@@ -1,6 +1,8 @@
+import PropTypes from "prop-types"; // ES6
+
 import React, { useState } from "react";
 
-function StartGame() {
+function StartGame({ startTimer }) {
   // Use state to keep track of whether to hide or show this container
   // Initially, is visible.
   const [visibility, setVisibility] = useState("visible");
@@ -23,7 +25,8 @@ function StartGame() {
   const PlayButtonClickHandler = () => {
     // Hide our button container
     setVisibility("hidden");
-    // TODO: Start the timer in the redux state
+    // TODO: Start the timer
+    startTimer();
   };
 
   return (
@@ -32,5 +35,10 @@ function StartGame() {
     </div>
   );
 }
+
+// Prop validation
+StartGame.propTypes = {
+  startTimer: PropTypes.func,
+};
 
 export default StartGame;
