@@ -10,7 +10,6 @@ import StartButtonAndTimer from "./components/StartButtonAndTimer";
 function App() {
   const { playerWon } = useSelector((state) => state.game);
 
-  console.log("app rerender");
   return (
     <div className="App">
       <CanvasContainer />

@@ -10,7 +10,6 @@ function Highscores({ db }) {
     const highscoresCol = collection(db, "highscores");
     const highscoresSnapshot = await getDocs(highscoresCol);
     const highscoresList = highscoresSnapshot.docs.map((doc) => doc.data());
-    console.log("highscores from Database await func:", highscoresList);
     setHighscores(highscoresList);
   }
 
@@ -18,8 +17,6 @@ function Highscores({ db }) {
   useEffect(() => {
     getHighscores(db);
   }, []);
-
-  console.log(highscores);
 
   // const highscoresRef = firestore.collection("highscores"); // get info from our collection/database
   // // query it (and order it by top 5 scores)

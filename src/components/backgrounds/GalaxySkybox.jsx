@@ -4,7 +4,6 @@ import { sRGBEncoding, CubeTextureLoader } from "three";
 function GalaxySkybox() {
   // grab a scene and make it the scene's bg
   const { scene } = useThree();
-  console.log(scene);
 
   // Clear our the scene (Remove our giant cubes that were made from the 360 photo cubes)
   // Clear everything except the latest child - which is the YOU WIN! font

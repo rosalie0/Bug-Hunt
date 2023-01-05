@@ -18,9 +18,6 @@ function Level1() {
     dispatch(addFlyCounter()); // add 1 to our fly counter
   };
 
-  // const { scene } = useThree();
-  // console.log(scene.children);
-  console.log("level 1 rerender!");
   return (
     <group name="level 1">
       <SunflowerField />
