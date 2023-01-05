@@ -1,28 +1,46 @@
 import React, { useEffect, useState } from "react";
-import { collection, getDocs } from "firebase/firestore/lite";
+import { collection, getDocs, addDoc } from "firebase/firestore/lite";
 
 import Loading from "../Loading";
 import { useSelector } from "react-redux";
 
 // eslint-disable-next-line react/prop-types
 function Leaderboard({ db }) {
+  const leaderboardCollection = collection(db, "leaderboard");
   const { timeInSeconds } = useSelector((state) => state.timer);
-  let [leaderboard, setLeaderboard] = useState([]);
+  const [leaderboard, setLeaderboard] = useState([]);
+  const [newName, setNewName] = useState("");
 
   // Async function to retrieve highscores from DB
-  async function getLeaderboard(db) {
-    const leaderboardCollection = collection(db, "leaderboard");
+  async function getLeaderboard() {
+    // Fetch data from our collection
     const leaderboardSnapshot = await getDocs(leaderboardCollection);
-    const data = leaderboardSnapshot.docs.map((doc) => doc.data());
+
+    // If you just do `doc.data()` instead of `{ ...doc.data(), id: doc.id }`
+    // You won't get the ids.
+    const data = leaderboardSnapshot.docs.map((doc) => ({
+      ...doc.data(),
+      id: doc.id,
+    }));
+
     setLeaderboard(data); // update our state
   }
 
+  // On first render, fetch data.
   useEffect(() => {
-    getLeaderboard(db);
+    getLeaderboard();
   }, []);
 
-  const submitHandler = () => {
-    //
+  const submitHandler = async () => {
+    const objectToSubmit = {
+      name: newName,
+      time: timeInSeconds,
+    };
+    // 'POST' to the firebase collection
+    await addDoc(leaderboardCollection, objectToSubmit);
+
+    // Refetch so it displays
+    await getLeaderboard();
   };
 
   // If we haven't gotten the data back yet, give them a Loading component.
@@ -30,32 +48,47 @@ function Leaderboard({ db }) {
 
   const containerStyles = {
     display: "flex",
-    flexDirection: "column",
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-evenly",
     alignItems: "center",
+    margin: 10,
+    padding: 5,
   };
   const tableStyles = {
     border: "1px solid tomato",
     padding: 3,
+    margin: 5,
   };
+
   return (
     <div style={containerStyles}>
-      <h2>Leaderboard:</h2>
       <table style={tableStyles}>
-        <th>Name</th>
-        <th>Time</th>
-
-        {leaderboard.map((entry) => (
-          <tr key={entry.id}>
-            <td>{entry.name}</td>
-            <td>{entry.time}</td>
+        <caption>Leaderboard</caption>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Time</th>
           </tr>
-        ))}
+        </thead>
+        <tbody>
+          {leaderboard.map((doc) => (
+            <tr key={doc.id}>
+              <td>{doc.name}</td>
+              <td>{doc.time}</td>
+            </tr>
+          ))}
+        </tbody>
       </table>
 
       <div>
         <h4>Save your time to leaderboard?</h4>
         <h5>Your time: {timeInSeconds} seconds</h5>
-        <input placeholder="Name..." />
+        <input
+          placeholder="Name..."
+          value={newName}
+          onChange={(e) => setNewName(e.target.value)}
+        />
         <button onClick={submitHandler}>Submit</button>
       </div>
     </div>

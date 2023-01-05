@@ -9,7 +9,7 @@ function GameInfoDisplay() {
     display: "flex",
     flexDirection: "row",
     flexWrap: "wrap",
-    justifyContent: "spaceAround",
+    justifyContent: "space-around",
     alignItems: "center",
     margin: 10,
     padding: 5,
