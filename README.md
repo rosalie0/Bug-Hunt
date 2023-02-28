@@ -7,13 +7,12 @@ There are currently only two levels, and a 'You Win' screen.
 
 ## How To Play
 - Visit the [Live Website](https://bug-hunt.onrender.com/)
-OR
-- clone the repo to your machine
-- via terminal: `npm i && npm run start`
+- OR:
+  - clone the repo to your machine
+  - via terminal: `npm i && npm run start`
 
 ## Known Issues
 
-- Clicking submit for the leaderboard name input does not do anything
 - Play again button does not restart the timer
 
 ### Credits
