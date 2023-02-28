@@ -6,7 +6,8 @@ Each level has its own background, which is a 360 HDRI photo, where the user can
 There are currently only two levels, and a 'You Win' screen.
 
 ## How To Play
-
+- Visit the [Live Website](https://bug-hunt.onrender.com/)
+OR
 - clone the repo to your machine
 - via terminal: `npm i && npm run start`
 
